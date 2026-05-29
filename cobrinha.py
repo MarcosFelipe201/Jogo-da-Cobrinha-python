@@ -9,44 +9,44 @@ pygame.mixer.init(frequency=44100, size=-16, channels=1, buffer=512)
 #  TEMAS VISUAIS
 TEMAS = {
     "Selva": {
-        "fundo":         (34,  85,  34),
-        "grade":         (40, 100,  40),
-        "parede":        (180, 30,  30),
-        "parede_brilho": (220, 60,  60),
-        "cobra":         (50, 205,  50),
-        "cobra_sombra":  (30, 140,  30),
-        "cobra_brilho":  (120, 240, 120),
-        "pontos":        (255, 230,  80),
+        "fundo":         (15,  35,  15),
+        "grade":         (25,  55,  25),
+        "parede":        (150, 255, 50),
+        "parede_brilho": (200, 255, 100),
+        "cobra":         (0,  255, 128),
+        "cobra_sombra":  (0,  150,  80),
+        "cobra_brilho":  (150, 255, 200),
+        "pontos":        (255, 100, 200),
     },
     "Noite": {
-        "fundo":         (10,  10,  30),
-        "grade":         (20,  20,  50),
-        "parede":        (80,   0, 160),
-        "parede_brilho": (140,  0, 255),
-        "cobra":         (0,  200, 255),
-        "cobra_sombra":  (0,  100, 180),
-        "cobra_brilho":  (150, 240, 255),
-        "pontos":        (255, 200,  50),
+        "fundo":         (20,   0,  40),
+        "grade":         (40,   0,  70),
+        "parede":        (0,  255, 255),
+        "parede_brilho": (150, 255, 255),
+        "cobra":         (255,  0, 255),
+        "cobra_sombra":  (150,  0, 150),
+        "cobra_brilho":  (255, 150, 255),
+        "pontos":        (0,  255, 150),
     },
     "Deserto": {
-        "fundo":         (180, 140,  60),
-        "grade":         (190, 155,  75),
-        "parede":        (160,  60,   0),
-        "parede_brilho": (220, 100,  20),
-        "cobra":         (255, 200,   0),
-        "cobra_sombra":  (180, 130,   0),
-        "cobra_brilho":  (255, 240, 150),
-        "pontos":        (255, 255, 255),
+        "fundo":         (60,  10,  10),
+        "grade":         (80,  20,  20),
+        "parede":        (255, 100,  0),
+        "parede_brilho": (255, 150, 50),
+        "cobra":         (255,  50,  0),
+        "cobra_sombra":  (150,  20,  0),
+        "cobra_brilho":  (255, 120, 80),
+        "pontos":        (255, 200,  0),
     },
     "Gelo": {
-        "fundo":         (180, 220, 240),
-        "grade":         (160, 210, 235),
-        "parede":        (0,   80, 160),
-        "parede_brilho": (0,  140, 220),
-        "cobra":         (255, 255, 255),
-        "cobra_sombra":  (150, 200, 230),
-        "cobra_brilho":  (220, 240, 255),
-        "pontos":        (0,   60, 140),
+        "fundo":         (0,   20,  60),
+        "grade":         (10,  40,  90),
+        "parede":        (100, 255, 200),
+        "parede_brilho": (180, 255, 230),
+        "cobra":         (50, 150, 255),
+        "cobra_sombra":  (20,  80, 180),
+        "cobra_brilho":  (150, 200, 255),
+        "pontos":        (255, 255, 255),
     },
 }
 
@@ -91,45 +91,45 @@ def criar_cabeca(personagem, cor_cobra, cor_sombra):
 
     if personagem == "Lagarta":
         pygame.draw.circle(surf, cor_sombra, (cx, cy), B//2)
-        pygame.draw.circle(surf, (200, 230, 80), (cx, cy), B//2 - 2)
-        pygame.draw.circle(surf, (0,0,0), (cx-3, cy-3), 2)
-        pygame.draw.circle(surf, (0,0,0), (cx+3, cy-3), 2)
-        pygame.draw.line(surf, (100,180,0), (cx-3, 1), (cx-5, -2), 1)
-        pygame.draw.line(surf, (100,180,0), (cx+3, 1), (cx+5, -2), 1)
+        pygame.draw.circle(surf, (150, 50, 200), (cx, cy), B//2 - 2)
+        pygame.draw.circle(surf, (255,255,255), (cx-3, cy-3), 2)
+        pygame.draw.circle(surf, (255,255,255), (cx+3, cy-3), 2)
+        pygame.draw.line(surf, (255,100,255), (cx-3, 1), (cx-5, -2), 1)
+        pygame.draw.line(surf, (255,100,255), (cx+3, 1), (cx+5, -2), 1)
 
     elif personagem == "Dragão":
         pts = [(cx, 0), (B, cy+4), (cx+2, B), (cx-2, B), (0, cy+4)]
         pygame.draw.polygon(surf, cor_sombra, pts)
         pts2 = [(cx, 2), (B-2, cy+4), (cx+1, B-2), (cx-1, B-2), (2, cy+4)]
-        pygame.draw.polygon(surf, (255, 80, 0), pts2)
-        pygame.draw.circle(surf, (255,220,0), (cx-3, cy-1), 2)
-        pygame.draw.circle(surf, (255,220,0), (cx+3, cy-1), 2)
+        pygame.draw.polygon(surf, (100, 255, 100), pts2)
+        pygame.draw.circle(surf, (255,0,0), (cx-3, cy-1), 2)
+        pygame.draw.circle(surf, (255,0,0), (cx+3, cy-1), 2)
 
     elif personagem == "Alien":
         pygame.draw.rect(surf, cor_sombra, (1, 3, B-2, B-4), border_radius=4)
-        pygame.draw.rect(surf, (0, 200, 100), (2, 4, B-4, B-6), border_radius=3)
+        pygame.draw.rect(surf, (255, 50, 50), (2, 4, B-4, B-6), border_radius=3)
         for ex, ey in [(3,6),(B-5,6),(cx-1,5)]:
-            pygame.draw.circle(surf, (200,255,0), (ex, ey), 2)
+            pygame.draw.circle(surf, (0,255,255), (ex, ey), 2)
         for ax in [2, 5, B-6, B-3]:
-            pygame.draw.line(surf, (0,180,80), (ax, B-4), (ax, B), 1)
+            pygame.draw.line(surf, (200,0,50), (ax, B-4), (ax, B), 1)
 
     else:  # Cobra padrão
         pygame.draw.circle(surf, cor_sombra, (cx, cy), B//2)
         pygame.draw.circle(surf, cor_cobra, (cx, cy), B//2 - 2)
-        pygame.draw.circle(surf, (255,255,255), (cx-3, cy-2), 3)
-        pygame.draw.circle(surf, (255,255,255), (cx+3, cy-2), 3)
-        pygame.draw.circle(surf, (0,0,0), (cx-3, cy-2), 1)
-        pygame.draw.circle(surf, (0,0,0), (cx+3, cy-2), 1)
-        pygame.draw.line(surf, (220,50,50), (cx, cy+3), (cx+3, cy+5), 2)
+        pygame.draw.circle(surf, (0,0,0), (cx-3, cy-2), 3)
+        pygame.draw.circle(surf, (0,0,0), (cx+3, cy-2), 3)
+        pygame.draw.circle(surf, (255,0,0), (cx-3, cy-2), 1)
+        pygame.draw.circle(surf, (255,0,0), (cx+3, cy-2), 1)
+        pygame.draw.line(surf, (50,220,50), (cx, cy+3), (cx+3, cy+5), 2)
 
     return surf
 
 def criar_comida():
     surf = pygame.Surface((TAMANHO_BLOCO, TAMANHO_BLOCO), pygame.SRCALPHA)
     B = TAMANHO_BLOCO
-    pygame.draw.circle(surf, (200, 0, 0), (B//2, B//2+1), B//2-1)
-    pygame.draw.circle(surf, (230, 50, 50), (B//2-2, B//2-2), B//4)
-    pygame.draw.line(surf, (80, 160, 0), (B//2+1, 2), (B//2+3, -1), 2)
+    pygame.draw.circle(surf, (100, 0, 200), (B//2, B//2+1), B//2-1)
+    pygame.draw.circle(surf, (150, 50, 255), (B//2-2, B//2-2), B//4)
+    pygame.draw.line(surf, (0, 255, 255), (B//2+1, 2), (B//2+3, -1), 2)
     return surf
 
 #  SOM PROCEDURAL
@@ -151,9 +151,9 @@ def gerar_som(freq=440, duracao=0.08, volume=0.3, forma="square"):
     return pygame.sndarray.make_sound(stereo)
 
 try:
-    SOM_COMER   = gerar_som(freq=600, duracao=0.10, volume=0.4, forma="square")
-    SOM_MORTE   = gerar_som(freq=150, duracao=0.35, volume=0.5, forma="triangle")
-    SOM_NIVEL   = gerar_som(freq=880, duracao=0.20, volume=0.4, forma="sine")
+    SOM_COMER   = gerar_som(freq=800, duracao=0.15, volume=0.4, forma="triangle")
+    SOM_MORTE   = gerar_som(freq=100, duracao=0.45, volume=0.6, forma="square")
+    SOM_NIVEL   = gerar_som(freq=1200, duracao=0.30, volume=0.4, forma="sine")
     SONS_OK     = True
 except Exception:
     SONS_OK = False
@@ -167,17 +167,17 @@ def tocar(som):
 particulas = []
 
 def adicionar_particulas(x, y, cor):
-    for _ in range(10):
+    for _ in range(15):
         angulo = random.uniform(0, 2*math.pi)
-        vel    = random.uniform(1, 4)
+        vel    = random.uniform(2, 6)
         particulas.append({
             "x": x + TAMANHO_BLOCO//2,
             "y": y + TAMANHO_BLOCO//2,
             "vx": math.cos(angulo)*vel,
             "vy": math.sin(angulo)*vel,
-            "vida": 20,
+            "vida": 30,
             "cor": cor,
-            "raio": random.randint(2, 5),
+            "raio": random.randint(3, 7),
         })
 
 def atualizar_particulas():
@@ -186,8 +186,8 @@ def atualizar_particulas():
         p["x"]    += p["vx"]
         p["y"]    += p["vy"]
         p["vida"] -= 1
-        p["vy"]   += 0.15
-        alpha = int(255 * p["vida"] / 20)
+        p["vy"]   += 0.05
+        alpha = int(255 * p["vida"] / 30)
         r,g,b = p["cor"]
         pygame.draw.circle(tela, (min(r,255),min(g,255),min(b,255)),
                            (int(p["x"]), int(p["y"])), p["raio"])
@@ -272,7 +272,7 @@ def menu_principal():
         desenhar_paredes(tema)
 
         # título animado
-        escala = 1 + 0.015 * math.sin(tick * 0.05)
+        escala = 1 + 0.025 * math.cos(tick * 0.08)
         titulo_surf = fonte_titulo.render("🐍 COBRINHA", True, tema["pontos"])
         w = int(titulo_surf.get_width() * escala)
         h = int(titulo_surf.get_height() * escala)
@@ -317,13 +317,13 @@ def menu_principal():
 
         # botão jogar
         cor_btn = (
-            int(100 + 80*math.sin(tick*0.08)),
-            int(200 + 30*math.sin(tick*0.08)),
-            80
+            int(150 + 100*math.cos(tick*0.1)),
+            int(50 + 50*math.sin(tick*0.1)),
+            150
         )
         btn = pygame.Rect(LARGURA//2 - 110, 448, 220, 20)
         pygame.draw.rect(tela, cor_btn, btn, border_radius=6)
-        s = fonte_media.render("▶  JOGAR  [ENTER]", True, (0,0,0))
+        s = fonte_media.render("▶  JOGAR  [ENTER]", True, (255,255,255))
         tela.blit(s, s.get_rect(center=btn.center))
 
         pygame.display.flip()
@@ -532,7 +532,7 @@ def loop_jogo(tema_nome, personagem, dificuldade_nome):
         # COMER
         if x == comida_x and y == comida_y:
             tocar(SOM_COMER)
-            adicionar_particulas(comida_x, comida_y, (255,80,80))
+            adicionar_particulas(comida_x, comida_y, (100,255,255))
             comprimento += 1
             comida_x, comida_y = nova_comida()
             if dificuldade_nome != "Fácil" and (comprimento-1) % 5 == 0 and comprimento > 1:
